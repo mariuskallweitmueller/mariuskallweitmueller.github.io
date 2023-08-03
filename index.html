@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marius Müller</title>
+    <style>
+    body {
+        margin: auto;
+        padding: 0;
+        font-size: x-large;
+        font-family: serif;
+        -webkit-font-smoothing : none;
+    }
+
+    body {
+        width: 335px;
+    }
+
+    a:hover {
+        background-color: pink;
+    }
+
+    canvas {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0; 
+        left: 0;
+        z-index: -9999;
+    }
+    </style>
+  </head>
+  <body>
+        <p>
+            <a href="mailto:marius.09mueller@outlook.de">marius.09mueller(at)outlook(dot)de</a> 
+            Marius Müller (*2000, Karlsruhe, DE) is a writer and artist situated in Würzburg, GER. His work both practical and theoretical follows themes of remembrance, articifical neural networks, history and archival techniques. Currently working in a research institute for user interface and digital media practices, he aims to continue his studies of technology and memory in a postgraduate programme.
+            <br>
+            <br>
+            <a href="https://docs.google.com/spreadsheets/d/1eMLuQe3kGmAUdw84btJtOPRzCL7SHUjXpw_NdhYJemQ/edit?usp=sharing" target="_blank">Chronology/CV</a>
+            <br>
+            <br>
+            <br>
+            <img src="1.png" width="100%">
+            <a href="/DieNooautomaten-MuellerMarius.pdf">Die Nooautomaten ~ 2023</a> <button onclick="showAbstract()">Abstract</button>
+            <script>
+                function showAbstract() {
+                    alert('The Nooautomatons is an image-theoretical ‚science fiction‘ about artificial neural networks, images and the terrorist attacks of 11 September 2001. The essay is an erratic plea that starts at image-making machines wanting to think for themselves and ends culminates at machine-humans. A dystopia of a potential present; a present in which the mental image is only the window dressing of an automaton.')
+                }
+            </script>
+            <br>
+            <code>
+                BibTeX Citation
+                @report{Mueller:2023,<br>
+                    author = {Mueller, Marius},<br>
+                    title = {Die Nooautomaten},<br>
+                    year = {2023},<br>
+                    publisher = {Technical University of Applied Sciences Würzburg-Schweinfurt},<br>
+                    address = {Würzburg, Germany}<br>
+                }
+            </code>
+            <br>
+            <br>
+            <a href="/DieNooautomaten-MuellerMarius.pdf" target="_blank">---> Download PDF</a> or <a href="mailto:marius.09mueller@outlook.de?subject=Order%20%22Die%20Nooautomaten%22%20&body=Thanks%20for%20wanting%20to%20buy%20a%20copy%20of%20%22Die%20Nooautomaten%22.%20Please%20send%20me%20a%20short%20mail%20with%20your%20shipping%20address.%20I%20will%20then%20calculate%20the%20shipping%20costs%20and%20add%20them%20to%20the%2018%E2%82%AC%20for%20the%20book.%20%0D%0A%0D%0ACheers%2C%0D%0AMarius">ORDER</a>
+            <br>
+            <br>
+            <br>
+            <img src="2.jpg" width="100%">
+            <br>
+            
+            <a href="/EsIstAllesEitel-MuellerMarius.pdf">Es ist alles eitel. ~ 2021</a> <button onclick="showAbstract2()">Abstract</button>
+            <script>
+                function showAbstract2() {
+                    alert('„It is all vanity“ Andreas Gryphius writes in his sonnet. Vanity (transience) - as Luther translated it - poses many questions: How do I value memory? What information is worthless? And in what context do they relate to each other? The book is an exploration of what is worth forgetting - or perhaps not. Consisting of 23 individual fragments, the work illustrates the dystopia of decay as well as the subjectivity of collecting: a book about unusable magnetic tape archives from NASA, patient files from the Alcor Life Extension Foundation and computer-generated faces - a panopticon of what has been left behind. In a mixture of journalistic research and formal meditation, a microcosm of bizarre and bygone contemporary documents emerges - a reading in the dichotomy between obsolescence and preservation. Sorted according to the author‘s subjective gusto, a rhizome-like structure forms without a recognisable starting and ending point. The individual documents have gaps in their compilation and comprehensiveness and thus make a closer look at the original a pleasurable pastime.')
+                }
+            </script>
+            <br>
+            <code>
+                BibTeX Citation
+                @report{Mueller:2021,<br>
+                    author = {Mueller, Marius},<br>
+                    title = {Es ist alles eitel.},<br>
+                    year = {2021},<br>
+                    publisher = {Baden-Wuerttemberg Cooperative State University Ravensburg},<br>
+                    address = {Ravensburg, Germany}<br>
+                }
+            </code>
+            <br>
+            <br>
+            <a href="/EsIstAllesEitel-MuellerMarius.pdf">---> Download PDF</a> or <a href="mailto:marius.09mueller@outlook.de?subject=Order%20%22Es%20ist%20alles%20eitel.%22&body=Thanks%20for%20wanting%20to%20buy%20a%20copy%20of%20%22Es%20ist%20alles%20eitel.%22.%20Please%20send%20me%20a%20short%20mail%20with%20your%20shipping%20address.%20I%20will%20then%20calculate%20the%20shipping%20costs%20and%20add%20them%20to%20the%2018%E2%82%AC%20for%20the%20book.%20%0D%0A%0D%0ACheers%2C%0D%0AMarius">ORDER</a>
+        </p>
+        <canvas id="canvas"></canvas>
+        
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            let coord = { x: 0, y: 0 };
+
+            document.addEventListener("mousemove", draw);
+            document.addEventListener("mouseup", resize);
+            window.addEventListener("resize", resize);
+
+            resize();
+
+            function resize() {
+            ctx.canvas.width = window.innerWidth;
+            ctx.canvas.height = window.innerHeight;
+            }
+            function reposition(event) {
+            coord.x = event.clientX - canvas.offsetLeft;
+            coord.y = event.clientY - canvas.offsetTop;
+            }
+            function start(event) {
+            document.addEventListener("mousemove", draw);
+            reposition(event);
+            }
+            function stop() {
+            document.removeEventListener("mousemove", draw);
+            }
+            function draw(event) {
+            ctx.beginPath();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "black";
+            ctx.moveTo(coord.x, coord.y);
+            reposition(event);
+            ctx.lineTo(coord.x, coord.y);
+            ctx.stroke();
+            }
+
+         </script>
+  </body>
+</html>
